@@ -46,13 +46,16 @@ namespace sprites {
         let startX = sprite.x
         let targetX = startX + value
         let skipCount = 0
+        let stopMovement = true
         function checkXPos() {
             if (activeSprites.indexOf(sprite) == -1) {
-                sprite.vx = 0
+                if (stopMovement) sprite.vx = 0
+                stopMovement = false
                 return;
             }
             if (sprite.vx == 0){
                 sprite.setVelocity(speed, sprite.vy)
+                stopMovement = true
             }
            
             if (sprite.x >= targetX || sprite.x < startX) {
@@ -84,13 +87,16 @@ namespace sprites {
         let startY = sprite.y
         let targetY = startY + value
         let skipCount = 0
+        let stopMovement = true
         function checkYPos() {
             if (activeSprites.indexOf(sprite) == -1) {
-                sprite.vy = 0
+                if (stopMovement) sprite.vy = 0
+                stopMovement = false
                 return;
             }
             if (sprite.vy == 0) {
                 sprite.setVelocity(sprite.vx, speed)
+                stopMovement = true
             }
             if (sprite.y >= targetY || sprite.y < startY) {
                 if (skipCount > 0) return
