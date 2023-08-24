@@ -55,8 +55,10 @@ namespace sprites {
             }
             if (sprite.vx == 0){
                 sprite.setVelocity(speed, sprite.vy)
-                stopMovement = true
+                
             }
+
+            stopMovement = true
            
             if (sprite.x >= targetX || sprite.x < startX) {
                 if (skipCount > 0) return
@@ -96,8 +98,9 @@ namespace sprites {
             }
             if (sprite.vy == 0) {
                 sprite.setVelocity(sprite.vx, speed)
-                stopMovement = true
+               
             }
+            stopMovement = true
             if (sprite.y >= targetY || sprite.y < startY) {
                 if (skipCount > 0) return
                 skipCount = 2
